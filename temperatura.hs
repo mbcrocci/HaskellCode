@@ -12,15 +12,15 @@ class TempUnit a where
 
 instance TempUnit Kelvin where
     toKelvin                = id
-    toCelsius    (Kelvin t) = Celsius $ t - 273.15
-    toFahrenheit (Kelvin t) = Fahrenheit $ (t - 273.15) * 1.8  + 32
+    toCelsius    (Kelvin ß ) = Celsius $ ß - 273.15
+    toFahrenheit (Kelvin ß) = Fahrenheit $ (ß - 273.15) * 1.8  + 32
 
 instance TempUnit Celsius where
     toCelsius                = id
-    toKelvin     (Celsius t) = Kelvin $ t + 273.15
-    toFahrenheit (Celsius t) = Fahrenheit $ t * 1.8  + 32
---
+    toKelvin     (Celsius ß) = Kelvin $ ß + 273.15
+    toFahrenheit (Celsius ß) = Fahrenheit $ ß * 1.8  + 32
+
 instance TempUnit Fahrenheit where
     toFahrenheit             = id
-    toKelvin  (Fahrenheit t) = Kelvin $ (t - 32) / 1.8 + 273.15
-    toCelsius (Fahrenheit t) = Celsius $ (t - 32) / 1.8
+    toKelvin  (Fahrenheit ß) = Kelvin $ (ß - 32) / 1.8 + 273.15
+    toCelsius (Fahrenheit ß) = Celsius $ (ß - 32) / 1.8
