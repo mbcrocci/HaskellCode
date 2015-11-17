@@ -11,9 +11,9 @@ class TempUnit a where
     toFahrenheit   :: a -> Fahrenheit
 
 instance TempUnit Kelvin where
-    toKelvin                = id
+    toKelvin                 = id
     toCelsius    (Kelvin ß ) = Celsius $ ß - 273.15
-    toFahrenheit (Kelvin ß) = Fahrenheit $ (ß - 273.15) * 1.8  + 32
+    toFahrenheit (Kelvin ß)  = Fahrenheit $ (ß - 273.15) * 1.8  + 32
 
 instance TempUnit Celsius where
     toCelsius                = id
