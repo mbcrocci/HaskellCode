@@ -7,7 +7,7 @@ main = do
     handle <- openFile (head fileName) ReadMode
     contents <- hGetContents handle
 
-    writeFile "new.txt" $ unlines $ map (unwords . quicksort .words) (lines contents)
+    writeFile "new.txt" $ unlines $ map (unwords . quicksort . words) (lines contents)
 
     hClose handle
 

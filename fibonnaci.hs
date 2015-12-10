@@ -7,16 +7,14 @@ fibRec 1 = 1
 fibRec n = fibRec (n-1) + fibRec (n-2)
 
 fibTail :: (Eq a, Num a, Show a) => a -> a
-fibTail a = fibTailRec a 0 1
+fibTail a = fibHelp a 0 1
+    where
+        fibHelp 0 acc _ = acc
+        fibHelp n acc b = fibHelp (n-1) b (acc+b)
 
-fibTailRec :: (Show a, Eq a, Num a) => a -> a -> a -> a
-fibTailRec 0 a _ = a
-fibTailRec n a b = fibTailRec (n-1) b (a+b)
 
 main :: IO()
 main = do
-    print $ show $ last $ take 30 fibGenerator
+    print $ show $ last $ take 300 fibGenerator
     print $ show (fibRec 30 :: Integer)
-    print $ show (fibTail 30 :: Integer)
-
-    -- print $ show (fibGenerator !! 20 :: Integer) nao funciona correctamente
+    print $ show (fibTail 300000:: Integer)

@@ -57,5 +57,3 @@ guessWrong target attempts guess = do
         else putStrLn "Too High"
 
     guessFor target $ attempts + 1
-
-    
