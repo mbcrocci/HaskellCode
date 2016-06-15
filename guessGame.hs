@@ -1,5 +1,5 @@
 import Data.Maybe
-import System.Environment
+import System.Environment 
 import System.Exit
 import System.Random
 
