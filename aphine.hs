@@ -3,11 +3,11 @@ import Data.Char
 coprime :: Int -> Bool
 coprime n = gcd n 26 == 1
 
-affine :: Int -> Int -> Int -> Int
-affine a b c = (a * c + b) `mod` 26
-
 inverse :: Int -> Int
 inverse n = head [x | x <- [1..26], x * n `mod` 26 == 1]
+
+affine :: Int -> Int -> Int -> Int
+affine a b c = (a * c + b) `mod` 26
 
 deaffine :: Int -> Int -> Int -> Int
 deaffine a b c = inverse a * (c - b + 26) `mod` 26
@@ -32,17 +32,13 @@ forcaBruta :: String -> [String]
 forcaBruta cs = [encryptString a b cs | a <- [n | n <- [1..26], coprime n],
                                         b <- [1.. 26]]
 
-caesar :: Char -> Char
-caesar = encrypt 1 3
-
-decaesar :: Char -> Char
-decaesar = decrypt 1 3
-
 caesarString :: String -> String
 caesarString cs = [caesar c | c <- cs]
+    where caesar = encrypt 1 3
 
 decaesarString :: String -> String
 decaesarString cs = [decaesar c | c <- cs]
+    where decaesar = decrypt 1 3
 
 main :: IO()
 main = do

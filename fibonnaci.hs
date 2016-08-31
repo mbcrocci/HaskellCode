@@ -9,7 +9,7 @@ fibRec 1 = 1
 fibRec n = fibRec (n-1) + fibRec (n-2)
 
 -- Standar recusive implementation with a TAIL optimization
-fibTail :: (Eq a, Num a, Show a) => a -> a
+fibTail :: (Eq a, Num a) => a -> a
 fibTail a = fibHelp a 0 1
     where
         fibHelp 0 acc _ = acc
